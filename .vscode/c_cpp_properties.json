@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "AVR",
+            "includePath": [
+                "${default}"
+            ],
+            "defines": [
+                "__AVR_ATmega328P__"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "compilerPath": "C:\\Users\\darwi\\Downloads\\avr8-gnu-toolchain-win32_x86_64\\bin\\avr-gcc.exe"
+        }
+    ],
+    "version": 4
+}

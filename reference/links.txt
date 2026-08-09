@@ -1,0 +1,3 @@
+LCD1602 MANUAL : https://www.waveshare.com/datasheet/LCD_en_PDF/LCD1602.pdf?srsltid=AfmBOoreU_0Hy6ajiJoP0Ur8OYhFoXjM2WgxFVsk844-DR1nshRLHMKn
+ATmega328P Manual : https://docs.arduino.cc/resources/datasheets/ATmega328P-datasheet.pdf
+Arduino Pinout Sheet : https://docs.arduino.cc/resources/pinouts/A000066-full-pinout.pdf
