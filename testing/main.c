@@ -8,14 +8,6 @@
 
 int main(void)
 {   
-
-    DDRB |= (1 << PB0);
-    DDRD |= (1 << PD7);
-    DDRD |= (1 << PD6);
-    DDRD |= (1 << PD5);
-    DDRD |= (1 << PD4);
-    DDRD |= (1 << PD3);
-
     LCD1602 display = 
     {
         .rs = {&PORTD, &DDRD, PD3},
@@ -29,7 +21,6 @@ int main(void)
 
     INIT_LCD1602(&display);
 
-
     // Writing works!
 
     WRITE_LCD1602(&display, 'F');
@@ -39,6 +30,7 @@ int main(void)
     WRITE_LCD1602(&display, '!'); 
     
     _delay_ms(1000);
+    //SET_CONFIG();
 
     CLEAR_DISPLAY_LCD1602(&display); // works
     while (1)
