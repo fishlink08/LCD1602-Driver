@@ -145,13 +145,13 @@ void INIT_LCD1602(LCD1602* LCDREF) // INITIALIZE LCD1602 MODULE
     _delay_us(50);
 }
 
-void WRITE_LCD1602(LCD1602* LCDREF, uint8_t data) // WRITE TO LCD1602
+void WRITE_LCD1602(LCD1602* LCDREF, uint8_t DATA) // WRITE TO LCD1602
 {
     *(LCDREF->rs.PORT) |= (1 << LCDREF->rs.bit); // WRITE MODE
     
 
-    uint8_t HIGH = (data >> 4);
-    uint8_t LOW = (data & 0x0F);
+    uint8_t HIGH = (DATA >> 4);
+    uint8_t LOW = (DATA & 0x0F);
     
     // Data
     *(LCDREF->DB4.PORT) &= ~(1 << LCDREF->DB4.bit);

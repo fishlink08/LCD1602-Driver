@@ -44,7 +44,23 @@ void INIT_LCD1602(LCD1602* LCDREF);
 */
 void SET_CONFIG(LCD1602* LCDREF, uint8_t FONT, uint8_t ROWS);
 
-void WRITE_LCD1602(LCD1602* LCDREF, uint8_t data);
+/*
+    Write data to LCD1602 Module
+
+    @param
+    LCDREF Reference of LCD1602 Struct
+
+    @param
+    DATA Data to be written to the LCD
+*/
+void WRITE_LCD1602(LCD1602* LCDREF, uint8_t DATA);
+
+/*
+    Clear the LCD1602 Display
+
+    @param
+    LCDREF Reference of LCD1602 Struct
+*/
 void CLEAR_DISPLAY_LCD1602(LCD1602* LCDREF);
 
 #endif //LCD1602 Driver for ATmega328p 
