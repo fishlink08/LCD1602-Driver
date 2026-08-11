@@ -21,18 +21,19 @@ int main(void)
 
     INIT_LCD1602(&display);
 
-    // Writing works!
-
-    WRITE_LCD1602(&display, 'F');
-    WRITE_LCD1602(&display, 'A');
-    WRITE_LCD1602(&display, 'I');
-    WRITE_LCD1602(&display, 'L');
+    WRITE_LCD1602(&display, 'T');
+    WRITE_LCD1602(&display, 'E');
+    WRITE_LCD1602(&display, 'S');
+    WRITE_LCD1602(&display, 'T');
     WRITE_LCD1602(&display, '!'); 
     
     _delay_ms(1000);
-    //SET_CONFIG();
 
-    CLEAR_DISPLAY_LCD1602(&display); // works
+    //SET_CONFIG(&display, 0, 2); 
+    //CURSOR_SHIFT(&display, 0, 1);
+    //CURSOR_RETURN(&display);
+
+    CLEAR_DISPLAY_LCD1602(&display); 
     while (1)
     {
 

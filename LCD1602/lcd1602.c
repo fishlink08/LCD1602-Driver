@@ -240,7 +240,9 @@ void CLEAR_DISPLAY_LCD1602(LCD1602* LCDREF) // CLEAR LCD1602 DISPLAY
 }
 
 void SET_CONFIG(LCD1602* LCDREF, uint8_t FONT, uint8_t ROWS)
-{
+{       
+    CLEAR_DISPLAY_LCD1602(LCDREF);
+
     *(LCDREF->rs.PORT) &= ~(1 << LCDREF->rs.bit);
 
     *(LCDREF->DB4.PORT) &= ~(1 << LCDREF->DB4.bit);
@@ -270,4 +272,55 @@ void SET_CONFIG(LCD1602* LCDREF, uint8_t FONT, uint8_t ROWS)
     
     _delay_us(50);
 
+}
+
+void CURSOR_SHIFT(LCD1602* LCDREF, uint8_t SHIFT_TYPE, uint8_t SHIFT_DIRECTION)
+{
+    *(LCDREF->rs.PORT) &= ~(1 << LCDREF->rs.bit);
+
+    *(LCDREF->DB4.PORT) |= (1 << LCDREF->DB4.bit);
+    *(LCDREF->DB5.PORT) &= ~(1 << LCDREF->DB5.bit);
+    *(LCDREF->DB6.PORT) &= ~(1 << LCDREF->DB6.bit);
+    *(LCDREF->DB7.PORT) &= ~(1 << LCDREF->DB7.bit);
+
+    *(LCDREF->e.PORT) |= (1 << LCDREF->e.bit); 
+    _delay_us(1);
+    *(LCDREF->e.PORT) &= ~(1 << LCDREF->e.bit); 
+
+    *(LCDREF->DB4.PORT) &= ~(1 << LCDREF->DB4.bit);
+    if (SHIFT_TYPE == 1) {
+        *(LCDREF->DB7.PORT) |= (1 << LCDREF->DB7.bit);
+    }
+
+    if (SHIFT_DIRECTION == 1) {
+        *(LCDREF->DB6.PORT) |= (1 << LCDREF->DB6.bit);
+    } 
+
+    *(LCDREF->e.PORT) |= (1 << LCDREF->e.bit); 
+    _delay_us(1);
+    *(LCDREF->e.PORT) &= ~(1 << LCDREF->e.bit); 
+    
+    _delay_us(50);
+}
+
+void CURSOR_RETURN(LCD1602* LCDREF)
+{
+    *(LCDREF->rs.PORT) &= ~(1 << LCDREF->rs.bit);
+
+    *(LCDREF->DB4.PORT) &= ~(1 << LCDREF->DB4.bit);
+    *(LCDREF->DB5.PORT) &= ~(1 << LCDREF->DB5.bit);
+    *(LCDREF->DB6.PORT) &= ~(1 << LCDREF->DB6.bit);
+    *(LCDREF->DB7.PORT) &= ~(1 << LCDREF->DB7.bit);
+
+    *(LCDREF->e.PORT) |= (1 << LCDREF->e.bit); 
+    _delay_us(1);
+    *(LCDREF->e.PORT) &= ~(1 << LCDREF->e.bit); 
+
+    *(LCDREF->DB5.PORT) |= (1 << LCDREF->DB5.bit);
+
+    *(LCDREF->e.PORT) |= (1 << LCDREF->e.bit); 
+    _delay_us(1);
+    *(LCDREF->e.PORT) &= ~(1 << LCDREF->e.bit); 
+
+    _delay_us(50);
 }
